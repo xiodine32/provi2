@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performante Vianiste</title>
+    <link rel="stylesheet" href="css/foundation.css" type="text/css">
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="large-12 columns text-center">
+        <h1>Performante Vianiste</h1>
+      </div>
+    </div>
+
+    <div class="row" id="tabs">
+
+      <div class="large-12 columns">
+
+        <h2 id="timeleft" class="text-center" style="display: none;"></h2>
+
+        <ul class="tabs" data-tabs id="the-tabs">
+          <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Clasament</a></li>
+          <li class="tabs-title"><a href="#panel2">Probleme</a></li>
+          <li class="tabs-title"><a href="#panel3">Tabel</a></li>
+        </ul>
+
+        <div class="tabs-content" data-tabs-content="the-tabs">
+          <div class="tabs-panel is-active" id="panel1">
+          </div>
+          <div class="tabs-panel" id="panel2">
+            
+          </div>
+          <div class="tabs-panel" id="panel3">
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div id="admin" style="display: none;">
+        <div class="large-12 columns">
+          <h2 class="text-center">Admin Interface</h2>
+        </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
