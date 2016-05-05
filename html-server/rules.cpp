@@ -169,14 +169,12 @@ void add_answer(int team,int problem,int answer){
 
 void tick(){
 	if (!started) return;
-	static int draw=-1;
-	if (++draw==0){
-		char tw[16384]={0};
-        strcpy(tw,say_drawables().c_str());
+	static int theTime = 0;
+	if (theTime != time(NULL)) {
+		theTime = time(NULL);
 		FILE *a=fopen("backup.txt","w");
-		fprintf(a,"%s",tw);
+		fprintf(a,"%s",say_drawables().c_str());
 		fclose(a);
-		draw=-5*60;
 	}
 
 	static int lleft=-1;

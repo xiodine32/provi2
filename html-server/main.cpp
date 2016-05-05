@@ -23,10 +23,12 @@ static void load() {
 
 std::string handler(std::string hn) {
 
-	std::ofstream fs;
-  	fs.open ("commands.txt", std::fstream::out | std::fstream::app);
-  	fs<<time(NULL)<<"   -   "<<say_time_left()<<"   -   "<<hn<<"\n";
-  	fs.close();
+	if (hn != "data") {
+		std::ofstream fs;
+	  	fs.open ("commands.txt", std::fstream::out | std::fstream::app);
+	  	fs<<time(NULL)<<"   -   "<<say_time_left()<<"   -   "<<hn<<"\n";
+	  	fs.close();
+  	}
 
 	const char *text = hn.c_str();
 	tick();
