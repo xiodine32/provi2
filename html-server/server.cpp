@@ -81,14 +81,15 @@ void JsonServer::run(const JSHandler_f &handler) {
 		socketConnection = accept(socketHandler, NULL, NULL);
 		if (socketConnection < 0) {
 			perror("accept");
-			exit(1);
+			continue;
 		}
 
 		char text[8192] = {0};
 		int result = recv(socketConnection, text, sizeof(text), 0);
 		if (result <= 0) {
 			perror("recv empty");
-			exit(1);
+            close(socketConnection);
+            continue;
 		}
 
 		// trim to first new line

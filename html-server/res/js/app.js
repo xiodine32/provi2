@@ -24,9 +24,10 @@
 
 		var counter = 2;
 
-		var i, j;
+		var i, j, teamNumber = 0;
 		for (i = obj["teams"] - 1; i >= 0; i--) {
 			var team = {
+                "number": (++teamNumber),
 				"name": data[++counter],
 				"points": parseInt(data[++counter]),
 				"correct": parseInt(data[++counter]),
@@ -222,7 +223,7 @@
 				max = max > punctaj ? max : punctaj;
 			}
 			for (i = 0; i < obj["teams"]; i++) {
-				$("#teamname_" + i).html('<strong>' + obj["team_data"][i]["name"] + '</strong>');
+				$("#teamname_" + i).html(obj["team_data"][i]["number"] + '. <strong>' + obj["team_data"][i]["name"] + '</strong>');
 				var theClass = "secondary";
 				if (max == obj["team_data"][i].points)
 					theClass = "success";
@@ -253,9 +254,9 @@
 			for (i = 1; i <= obj["problems"]; i++) {
 				ths += "<th>" + i + "</th>";
 			}
-			var table = "<table><thead><tr><th width='200'>Nume Echipa</th>" + ths +"</tr></thead><tbody>";
+			var table = "<table><thead><tr><th width='300'>Nume Echipa</th>" + ths +"</tr></thead><tbody>";
 			for (i = 0; i < obj["teams"]; i++) {
-				table += "<tr><th class='text-right'>" + obj["team_data"][i].name + "</th>";
+				table += "<tr><th class='text-right'><small>" + obj["team_data"][i].number + ".</small> " + obj["team_data"][i].name + "</th>";
 
 				for (j = 0; j < obj["problems"]; j++) {
 					var classes = "alert";
@@ -338,9 +339,9 @@
 					  '<div class="progress-meter" style="width: 0%" id="problemprocent_' + i + '"></div>' +
 					'</div></div><div class="small-1 columns" id="problemscore_' + i + '"></div></div>');
 			}
-			var table = "<table><thead><tr><th width='200'>Nume Echipa</th><th colspan='" + obj["problems"] + "'>Problema</th></tr></thead><tbody>";
+			var table = "<table><thead><tr><th width='300'>Nume Echipa</th><th colspan='" + obj["problems"] + "'>Problema</th></tr></thead><tbody>";
 			for (i = 0; i < obj["teams"]; i++) {
-				table += "<tr><th class='text-right'>" + obj["team_data"][i].name + "</th>";
+				table += "<tr><th class='text-right'>" + (i + 1) + ". " + obj["team_data"][i].name + "</th>";
 
 				for (j = 0; j < obj["problems"]; j++) {
 					var classes = "alert";

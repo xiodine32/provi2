@@ -1,41 +1,47 @@
 NUMARUL DE ECHIPE
-32
+38
 TIMP CONCURS (in minute)
 120
 PROBLEME
 20
 REZOLVARI
-1370 2 3125 324 2 8311 5040 5 891 225 167 266 6231 325 6099 25 22 978 5157 50
+3 3285 1343 14 2000 4472 292 180 1764 4307 192 106 833 556 696 12 208 516 609 228
 NUMELE ECHIPELOR
-CN Mihai Viteazul
-ICHB 1
-ICHB 2
-Arca Lu' Noe(9A)
-Cartof(9A)
-9G
-Quantum(10H)
-Ten Shots(10D)
-2601(10D)
-Unu(10E)
-Doi(10E)
-Echipa I(10G)
-Echipa II(10G)
-10F
-11A
-Scoala 97
-11C
-Monstrii Marini(11D)
-COUT<<"VIANU"(11D)
-Surorile Cangrena(11G)
-11F
-9C
-10A
-10B
-10D
-Le wild team(11B)
-Echipa I(9B)
-Echipa II(9B)
-Biultele de foc
-CN Sfantul Sava 1
-CN Sfantul Sava 2
-9F
+11G - Joe Cocker Blue Label
+ 9A - Avantul din demisol
+11E - Los Pollos Hermanos
+10H - Fantastic Five
+ 9E - Zeu
+ 9E - Pitagora
+ MV - Dendritele
+ MV - Cubanul
+ 8A - Atena
+12A - Penelopa
+ 9C - Teracopa
+10G - TEAM KOCH
+ 9F - Olimpia
+ 9F - Vulkan Team
+10H - VME
+ 9G - Gamblers 5
+11FD - OLI
+ 9D - Dionysos
+ 9D - Magnus
+10I - Normandia
+10H - Cronicarii
+10D - Praduitorii
+10C - Marinlenus
+10F - Posso
+10D - Stellaris
+10D - Prestige
+ SS - 54MOLA!
+ MV - SKYNET
+ MV - MATRIX
+ MV - GENIX
+  7 -
+12C - Purcelusii
+ 9I - Epsilon
+11B - FEDOR
+11B - Megatron 3000
+12A - Anteprescolarii
+11A - MLC
+11A - Unu

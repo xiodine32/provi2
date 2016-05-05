@@ -23,7 +23,8 @@
 }
 
 #tabel .label.bordered {
-    border: 2px solid #000;
+    border-radius: 0;
+    font-size: 1.5rem;
 }
 #tabel .label {
     border-radius: 10px;
@@ -111,4 +112,8 @@
 #timeleft {
     transition: all 2s;
     border-radius: 15px;
+}
+
+#tabel tbody th.text-right {
+    font-size: 1rem;
 }

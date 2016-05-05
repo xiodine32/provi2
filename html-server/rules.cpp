@@ -179,7 +179,7 @@ void tick(){
 
 	static int lleft=-1;
 	int left= contest_time * 60 - (time(NULL) - time_start);
-	if ((time(NULL) - time_start) > 11 * 60){
+	if ((time(NULL) - time_start) > 21 * 60){
 		for (int i=1;i<=echipe;i++)
 			if (echipa[i].problema_bonus==-1)
 				echipa[i].problema_bonus=1;
@@ -201,7 +201,7 @@ void set_team_bonus(int team,int pb){
 	if (!started) {nostart();return;}
 
 	int ela= (time(NULL) - time_start);
-	if (ela > 660) {s("Cannot modify team bonus, time expired.");return;}
+	if (ela > 1200) {s("Cannot modify team bonus, time expired.");return;}
 	if (echipa[team].problema_bonus!=-1){
 		s("Team bonus already modified");
 		return;
