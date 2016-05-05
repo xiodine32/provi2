@@ -2,7 +2,12 @@
 
 #include "rules.h"
 
+#include <fstream>
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 
 static void load() {
 	FILE *fileBackup=fopen("backup.txt","r");
@@ -17,9 +22,13 @@ static void load() {
 }
 
 std::string handler(std::string hn) {
-	std::cout<<"TIME HANDLE: "<<time(NULL)<<"\n";
-	const char *text = hn.c_str();
 
+	std::ofstream fs;
+  	fs.open ("commands.txt", std::fstream::out | std::fstream::app);
+  	fs<<time(NULL)<<"   -   "<<say_time_left()<<"   -   "<<hn<<"\n";
+  	fs.close();
+
+	const char *text = hn.c_str();
 	tick();
 	if (strcmp(text,"ok")==0)
 		return "ok";
@@ -30,11 +39,12 @@ std::string handler(std::string hn) {
 	}
 	if (text[0]=='S'){
 		d("Changing Special Problem");
-		char tmp[16384]={0};memcpy(tmp,text,sizeof(tmp));
-		strtok(tmp,"|");
-		char *p=strtok(NULL,"|");
+		char tmp[16384]={0};
+		memcpy(tmp,text,sizeof(char) * strlen(text));
+		strtok(tmp,"_");
+		char *p=strtok(NULL,"_");
 		int tta=atoi(p);
-		p=strtok(NULL,"|");
+		p=strtok(NULL,"_");
 		int prbl=atoi(p);
 		set_team_bonus(tta,prbl);
 		return "set team bonus";
@@ -50,25 +60,30 @@ std::string handler(std::string hn) {
 	if (strcmp(text,"data")==0){
 		return say_drawables();
 	}
-	if (strstr(text,"add|")){
-		char tmp[16384]={0};memcpy(tmp,text,sizeof(tmp));
-		strtok(tmp,"|");
-		char *p=strtok(NULL,"|");
+	if (strstr(text,"add_")){
+		char tmp[16384]={0};
+		memcpy(tmp,text,sizeof(char) * strlen(text));
+		strtok(tmp,"_");
+		char *p=strtok(NULL,"_");
 		int tta=atoi(p),add_amm=0;
-		p=strtok(NULL,"|");
+		p=strtok(NULL,"_");
 		add_amm=atoi(p);
 		memset(tmp,0,sizeof(tmp));
 
 		add_team_score(tta,add_amm);
 		return "added";
 	}
-	if (strstr(text,"a|")){
-		char tmp[16384]={0};memcpy(tmp,text,sizeof(tmp));
-		strtok(tmp,"|");
+	if (strstr(text,"a_")){
+		char tmp[16384]={0};
+		memcpy(tmp,text,sizeof(char) * strlen(text));
+		strtok(tmp,"_");
 		int t,p,a;
-        char *Q=strtok(NULL,"|");t=atoi(Q);
-		Q=strtok(NULL,"|");p=atoi(Q);
-		Q=strtok(NULL,"|");a=atoi(Q);
+        char *Q=strtok(NULL,"_");
+        t=atoi(Q);
+		Q=strtok(NULL,"_");
+		p=atoi(Q);
+		Q=strtok(NULL,"_");
+		a=atoi(Q);
 		memset(tmp,0,sizeof(tmp));
 		sprintf(tmp,"TEAM %d PROBLEM %d ANSWER %d",t,p,a);
 		s(tmp);

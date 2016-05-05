@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performante Vianiste</title>
+    <link rel="stylesheet" href="css/foundation.css" type="text/css">
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+  </head>
+  <body>
+    <div style="position: fixed; left:0;top:0;">
+      <img src="img/qr.png" style="max-width: 100px;float: right;margin: 10px;">
+    </div>
+    <img src="img/logo_banner.png" style="position:fixed; right: 0;top:0;z-index:-1;max-width: 120px;margin: 10px 10px 0;">
+    <div class="row" id="title">
+      <div class="large-12 columns text-center">
+        <h1>Performante Vianiste</h1>
+      </div>
+    </div>
+
+    <div class="row" id="tabs">
+
+      <div class="large-12 columns">
+
+        <h2 id="timeleft" class="label secondary text-center" style="display: none;margin-left: auto;margin-right:auto;font-size: 3em;">
+        </h2>
+
+        <ul class="tabs" data-tabs id="the-tabs">
+          <li class="tabs-title is-active"><a href="#clasament" aria-selected="true">Clasament</a></li>
+          <li class="tabs-title"><a href="#probleme">Probleme</a></li>
+          <li class="tabs-title"><a href="#tabel">Tabel</a></li>
+          <li class="tabs-title float-right"><a href="#" onclick="$(this).parent().parent().remove();$('.tabs-content').css({'border':0});$('#title').remove();return false;">Remove</a></li>
+        </ul>
+
+        <div class="tabs-content" data-tabs-content="the-tabs">
+          <div class="tabs-panel is-active" id="clasament">
+            <!-- team_data -> points + name -->
+          </div>
+          <div class="tabs-panel" id="probleme">
+            <!-- problem_data -> points -->
+          </div>
+          <div class="tabs-panel" id="tabel">
+            <!-- team_data -> name + answers + bonus ++ problem_data -> answerers -->
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div id="admin" style="display: none;">
+        <div class="large-12 columns">
+          <h2 class="text-center">Admin Interface</h2>
+          <div id="teamSelector"></div>
+          <div id="teamPopup" class="popup"></div>
+          <div id="teamSetPopup" class="popup"></div>
+          <div id="teamAddPopup" class="popup"></div>
+        </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

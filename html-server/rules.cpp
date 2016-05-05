@@ -56,7 +56,7 @@ void readconfig(){
 		sprintf(text,"created team %d",i);
 		d(text);
 	}
-	
+
 	fclose(f);
 }
 void nostart(){
@@ -158,7 +158,7 @@ void add_answer(int team,int problem,int answer){
 		}
 	}
 	else{
-		
+
 		if (echipa[team].problema_bonus==problem)
 			echipa[team].punctaj-=PENALITATE_GRESEALA;
 		echipa[team].punctaj-=PENALITATE_GRESEALA;
@@ -181,7 +181,7 @@ void tick(){
 
 	static int lleft=-1;
 	int left= contest_time * 60 - (time(NULL) - time_start);
-	if ((time(NULL) - time_start) > 20 * 60){
+	if ((time(NULL) - time_start) > 11 * 60){
 		for (int i=1;i<=echipe;i++)
 			if (echipa[i].problema_bonus==-1)
 				echipa[i].problema_bonus=1;
@@ -203,7 +203,7 @@ void set_team_bonus(int team,int pb){
 	if (!started) {nostart();return;}
 
 	int ela= (time(NULL) - time_start);
-	if (ela>700) {s("Cannot modify team bonus, time expired.");return;}
+	if (ela > 660) {s("Cannot modify team bonus, time expired.");return;}
 	if (echipa[team].problema_bonus!=-1){
 		s("Team bonus already modified");
 		return;
@@ -217,7 +217,7 @@ void load_backup(){
 	FILE *f=fopen("backup.txt","r");
 	char pd[16384] = {0};
 	fgets(pd,16384,f);
-	
+
 	if (strcmp(pd,"ERROR")==0)return;
 	d("processing data");
 	char *mover;
@@ -247,4 +247,4 @@ void load_backup(){
 		}
 	}
 }
- 
+

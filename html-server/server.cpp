@@ -4,18 +4,25 @@
 #include <fstream>
 #include <sstream>
 
+
 #define d(data) std::cout<<"[DEBUG]: "<<data<<"\n"
 
 
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
 void JsonServer::init() {
 	d("json server init");
 	socketHandler = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
+	int f = 1;
+	if (setsockopt(socketHandler, SOL_SOCKET, SO_REUSEADDR, &f, sizeof(int)) < 0) {
+		perror("setsockopt");
+		exit(1);
+	}
 	if (socketHandler < 0) {
 		perror("open");
 		exit(1);
@@ -40,7 +47,7 @@ JsonServer::JsonServer() {
 	d("json server construct");
 
 	init();
-	
+
 }
 JsonServer::~JsonServer() {
 	d("json server del");
@@ -103,7 +110,7 @@ void JsonServer::run(const JSHandler_f &handler) {
 			fclose(f);
 			hasFile = true;
 		}
-		
+
 
 		if (textString.find("favicon.ico") != std::string::npos) {
 			outData<<"HTTP/1.0 404 Not Found\n";
@@ -114,7 +121,7 @@ void JsonServer::run(const JSHandler_f &handler) {
 			outData<<"content-type:"<<computeMimeType(hasFile, textPath)<<"; charset=utf-8\n";
 			outData<<"pragma:no-cache\n\n";
 
-			
+
 			if (hasFile) {
 				std::ifstream input(textPath.c_str());
 				outData << input.rdbuf();
