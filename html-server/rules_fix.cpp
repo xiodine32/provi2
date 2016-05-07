@@ -169,6 +169,7 @@ void add_answer(int team,int problem,int answer){
 
 void tick(time_t theTime2){
 	if (!started) return;
+//    std::cout<<"[TIME TICK]: "<<theTime2<<"\n";
 	static int theTime = 0;
 	if (theTime != theTime2) {
 		theTime = theTime2;

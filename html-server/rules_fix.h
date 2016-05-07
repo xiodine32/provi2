@@ -11,6 +11,8 @@ const int PUNCTAJ_ECHIPA_INITIAL=200;
 const bool debug=true;
 
 
+extern int probleme;
+
 void d(const char *data);
 void s(const char *data);
 void readconfig();
