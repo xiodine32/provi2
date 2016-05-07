@@ -1,6 +1,16 @@
 #!/bin/sh
-# make sure that backup.txt is renamed into backup.old before
-# running script over and over again.
+# make sure that backup.txt is renamed into backup.old
+if [ ! -f backup.old ]; then
+    cp backup.txt backup.old
+fi
+
+# make sure that commands.txt is renamed into commands.backup
+if [ ! -f commands.backup ]; then
+    cp commands.txt commands.backup
+fi
+
+# make
+make
 
 # call fix
 ./punctaje_fix
@@ -17,7 +27,7 @@ xdg-open http://localhost:1030
 sleep 5
 
 # kill server
-pkill server
+kill $!
 
 # delete 'old' backup
 rm backup.txt
@@ -26,4 +36,10 @@ rm backup.txt
 mv backup2.txt backup.txt
 
 # run server
-./server
+./server &
+
+# wait 5 more seconds
+sleep 5
+
+# kill server
+kill $!

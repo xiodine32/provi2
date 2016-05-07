@@ -1,5 +1,4 @@
 build: punctaje_fix server
-	./punctaje_fix
 server: main.cpp rules.cpp server.cpp
 	g++ -o server main.cpp rules.cpp server.cpp -O2 -lpthread -g
 
